@@ -1,0 +1,309 @@
+.packages {
+    background: var(--bg-dark);
+}
+
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.package-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    overflow: visible;
+    transition: all 0.3s ease;
+    animation: slideUp 0.6s ease-out backwards;
+}
+
+.package-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.package-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.package-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.package-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.package-card.best-seller {
+    border: 2px solid var(--primary-color);
+    background: rgba(204, 0, 255, 0.05);
+    transform: scale(1.05);
+}
+
+.package-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(204, 0, 255, 0.25);
+}
+
+.package-card.best-seller:hover {
+    transform: translateY(-8px) scale(1.05);
+}
+
+.best-seller-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gradient-purple);
+    color: var(--text-white);
+    padding: 8px 18px;
+    border-radius: 25px;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 20px rgba(204, 0, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 10;
+    white-space: nowrap;
+}
+
+.best-seller-badge i {
+    font-size: 12px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Premium Package (Gold) */
+.package-card.premium {
+    border: 2px solid #d4af37;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(255, 215, 0, 0.05) 100%);
+    transform: scale(1.05);
+}
+
+.package-card.premium:hover {
+    border-color: #ffd700;
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 12px 35px rgba(212, 175, 55, 0.4);
+}
+
+.premium-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+    color: #000;
+    padding: 8px 18px;
+    border-radius: 25px;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 10;
+    white-space: nowrap;
+}
+
+.premium-badge i {
+    font-size: 12px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.package-card.premium .package-name {
+    background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.package-card.premium .package-price {
+    color: #ffd700;
+}
+
+.package-card.premium .cta-button {
+    background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+    color: #000;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+.package-card.premium .cta-button:hover {
+    background: linear-gradient(135deg, #ffd700 0%, #d4af37 100%);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+    transform: translateY(-2px);
+}
+
+.package-card.premium .package-features li::before {
+    color: #ffd700;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.package-name {
+    font-size: 22px;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.package-card.best-seller .package-name {
+    color: var(--primary-color);
+}
+
+.package-price {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 15px 0;
+    color: var(--text-gray);
+}
+
+.package-reels {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin: 20px 0;
+}
+
+.package-description {
+    font-size: 14px;
+    color: var(--text-gray);
+    font-style: italic;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.package-features {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 25px;
+    padding: 0;
+}
+
+.package-features li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-gray);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.package-features li:last-child {
+    border-bottom: none;
+}
+
+.package-features li::before {
+    content: '✓';
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.package-cta {
+    margin-top: 15px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .packages-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .package-card.best-seller {
+        transform: scale(1.02);
+    }
+
+    .package-card.best-seller:hover {
+        transform: translateY(-8px) scale(1.02);
+    }
+}
+
+@media (max-width: 768px) {
+    .packages-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .package-card {
+        padding: 25px 20px;
+        margin-top: 20px;
+    }
+
+    .package-name {
+        font-size: 18px;
+        margin-top: 30px;
+    }
+
+    .package-price {
+        font-size: 14px;
+        margin: 10px 0;
+    }
+
+    .package-reels {
+        font-size: 32px;
+        margin: 15px 0;
+    }
+
+    .package-features li {
+        font-size: 13px;
+        padding: 8px 0;
+    }
+
+    .best-seller-badge {
+        font-size: 11px;
+        padding: 6px 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .packages-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .package-card {
+        padding: 22px 18px;
+        margin-top: 25px;
+    }
+
+    .package-name {
+        font-size: 17px;
+    }
+
+    .package-price {
+        font-size: 13px;
+    }
+
+    .package-reels {
+        font-size: 28px;
+    }
+
+    .package-features li {
+        font-size: 12px;
+    }
+}
