@@ -1,10 +1,24 @@
 import React from 'react';
 import '../styles/Packages.css';
+import goldLogo from '../assets/cinereelz-logo-gold.png';
 
 const Packages = () => {
-    const whatsappLink = "https://wa.me/9700223111?text=I%20want%20to%20book%20a%20CineReelz%20reel%20shoot";
+    const whatsappLink = "https://wa.me/919493903229?text=I%20want%20to%20book%20a%20CineReelz%20reel%20shoot";
 
     const packages = [
+        {
+            name: "Pre-Wedding",
+            price: "₹9,999",
+            description: "Your love story from above and beyond.",
+            features: [
+                "Cinematic drone footage",
+                "iPhone cinematic editing",
+                "1 event coverage",
+                "1 professionally edited video",
+                "Terms and conditions apply"
+            ],
+            bestSeller: false
+        },
         {
             name: "Standard",
             price: "₹9,999",
@@ -78,6 +92,11 @@ const Packages = () => {
                         {pkg.premium && (
                             <div className="premium-badge">
                                 <i className="fa-solid fa-crown"></i> Premium
+                            </div>
+                        )}
+                        {pkg.premium && (
+                            <div className="premium-logo-container">
+                                <img src={goldLogo} alt="CineReelz Gold" className="premium-gold-logo" />
                             </div>
                         )}
                         <h3 className="package-name">{pkg.name} Package</h3>

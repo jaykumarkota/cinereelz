@@ -4,21 +4,21 @@ import '../styles/Testimonials.css';
 const Testimonials = () => {
     const testimonials = [
         {
-            name: "Priya Sharma",
-            role: "Wedding Planner",
-            content: "CineReelz transformed our wedding coverage. The 20-minute delivery is incredible! Our clients love seeing their moments instantly.",
+            name: "Lucky",
+            role: "Sister's Wedding",
+            content: "We were amazed by how quickly we got the reels! The quality was stunning, and seeing the videos while the event was still happening was just magical. Everyone kept asking who the team was!",
             rating: 5
         },
         {
-            name: "Rajesh Kumar",
-            role: "Event Organizer",
-            content: "Professional quality with unmatched speed. The team captures every detail perfectly. Highly recommend for any event!",
-            rating: 5
-        },
-        {
-            name: "Ananya Reddy",
+            name: "Janaki",
             role: "Birthday Celebration",
-            content: "Amazing experience! The reels were delivered before the party ended. The quality is outstanding and everyone loved them.",
+            content: "Honestly, I didn’t expect such professional output in just 20 minutes. They captured the vibe perfectly without being intrusive. It felt like they were part of the celebration!",
+            rating: 5
+        },
+        {
+            name: "Surya",
+            role: "Corporate Event",
+            content: "The best decision we made for our event. The team was super friendly and the final reels were just beautiful. Sharing them instantly with colleagues made it so much fun!",
             rating: 5
         }
     ];

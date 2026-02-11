@@ -9,7 +9,7 @@ const Samples = () => {
     const samples = [
         { id: 1, ...config.images.samples.corporate },
         { id: 2, ...config.images.samples.wedding },
-        { id: 3, ...config.images.samples.product },
+        { id: 3, ...config.images.samples.political },
         { id: 4, ...config.images.samples.birthday }
     ];
 
@@ -43,9 +43,18 @@ const Samples = () => {
                         role="button"
                         tabIndex={0}
                         aria-label={`View ${sample.title} sample`}
-                        style={{ backgroundImage: `url(${sample.image})` }}
                     >
+                        <img
+                            src={sample.image}
+                            alt={sample.alt}
+                            title={sample.title}
+                            className="sample-image"
+                            loading="lazy"
+                            width="1080"
+                            height="1920"
+                        />
                         <div className="sample-overlay">
+                            <h3 className="sample-title">{sample.title}</h3>
                             <div className="sample-instagram">
                                 <i className="fa-brands fa-instagram"></i>
                                 <span>{config.social.instagramHandle.slice(1)}</span>
@@ -56,7 +65,7 @@ const Samples = () => {
                                 rel="noopener noreferrer"
                                 className="sample-play-btn"
                                 onClick={(e) => e.stopPropagation()}
-                                aria-label="Play video on Instagram"
+                                aria-label={`Play ${sample.title} reel on Instagram`}
                             >
                                 <i className="fa-solid fa-play"></i>
                             </a>

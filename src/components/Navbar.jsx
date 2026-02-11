@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import logo from '../assets/cinereelz-logo.png';
+import tonyLogo from '../assets/tony-photo-logo.png';
 import '../styles/Navbar.css';
 
 const Navbar = () => {
@@ -20,17 +21,24 @@ const Navbar = () => {
         setMobileMenuOpen(false);
     };
 
-    const whatsappLink = "https://wa.me/9700223111?text=I%20want%20to%20book%20a%20CineReelz%20reel%20shoot";
+    const whatsappLink = "https://wa.me/919493903229?text=I%20want%20to%20book%20a%20CineReelz%20reel%20shoot";
 
     return (
         <nav className="navbar">
             <div className="navbar-container">
-                <img
-                    src={logo}
-                    alt="CineReelz"
-                    className="navbar-logo"
-                    onClick={() => scrollToSection('hero')}
-                />
+                <div className="logo-container" onClick={() => scrollToSection('hero')}>
+                    <img
+                        src={logo}
+                        alt="CineReelz"
+                        className="navbar-logo"
+                    />
+                    <span className="collab-x">x</span>
+                    <img
+                        src={tonyLogo}
+                        alt="Tony Photography"
+                        className="navbar-logo tony-logo"
+                    />
+                </div>
 
                 <ul className={`navbar-links ${mobileMenuOpen ? 'active' : ''}`}>
                     <li><a onClick={() => scrollToSection('hero')}>Home</a></li>

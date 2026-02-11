@@ -1,5 +1,7 @@
 import React from 'react';
 import './styles/index.css';
+import { HelmetProvider } from 'react-helmet-async';
+import SEO from './components/SEO';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import WhyChooseUs from './components/WhyChooseUs';
@@ -15,38 +17,41 @@ import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <div id="hero">
-        <Hero />
+    <HelmetProvider>
+      <div className="App">
+        <SEO />
+        <Navbar />
+        <div id="hero">
+          <Hero />
+        </div>
+        <div id="why-choose-us">
+          <WhyChooseUs />
+        </div>
+        <div id="packages">
+          <Packages />
+        </div>
+        <div id="custom-package">
+          <CustomPackage />
+        </div>
+        <div id="how-it-works">
+          <HowItWorks />
+        </div>
+        <div id="samples">
+          <Samples />
+        </div>
+        <div id="testimonials">
+          <Testimonials />
+        </div>
+        <div id="terms">
+          <Terms />
+        </div>
+        <div id="contact">
+          <ThankYou />
+        </div>
+        <Footer />
+        <ScrollToTop />
       </div>
-      <div id="why-choose-us">
-        <WhyChooseUs />
-      </div>
-      <div id="packages">
-        <Packages />
-      </div>
-      <div id="custom-package">
-        <CustomPackage />
-      </div>
-      <div id="how-it-works">
-        <HowItWorks />
-      </div>
-      <div id="samples">
-        <Samples />
-      </div>
-      <div id="testimonials">
-        <Testimonials />
-      </div>
-      <div id="terms">
-        <Terms />
-      </div>
-      <div id="contact">
-        <ThankYou />
-      </div>
-      <Footer />
-      <ScrollToTop />
-    </div>
+    </HelmetProvider>
   );
 }
 

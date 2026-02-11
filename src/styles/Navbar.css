@@ -19,15 +19,39 @@
     align-items: center;
 }
 
-.navbar-logo {
-    height: 44px;
-    width: auto;
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
 
-.navbar-logo:hover {
-    transform: scale(1.05);
+.logo-container:hover {
+    transform: scale(1.02);
+}
+
+.navbar-logo {
+    height: 52px;
+    width: auto;
+    object-fit: contain;
+}
+
+.tony-logo {
+    height: 52px;
+    /* Increased to match the main logo or be larger as requested */
+}
+
+.collab-x {
+    color: var(--text-white);
+    /* Changed to white for better visibility */
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 4px;
+    opacity: 0.8;
+    /* Increased opacity */
+    font-family: 'Arial', sans-serif;
+    /* Simpler font for the X */
 }
 
 .navbar-links {
@@ -93,7 +117,7 @@
     }
 
     .navbar-logo {
-        height: 38px;
+        height: 44px;
     }
 
     .navbar-links {

@@ -1,10 +1,13 @@
-import sampleImage from '../assets/sample-image-grid.jpeg';
+import weddingImage from '../assets/wedding-sample.jpeg';
+import corporateImage from '../assets/corporate-sample.png';
+import birthdayImage from '../assets/birthday-sample.png';
+import politicalImage from '../assets/political-sample.png';
 
 const config = {
     contact: {
-        phone: "9700223111",
-        phoneFormatted: "+91 9700 223 111",
-        phoneLink: "+919700223111",
+        phone: "9493903229",
+        phoneFormatted: "+91 9493 903 229",
+        phoneLink: "+919493903229",
         email: "cinereelz9@gmail.com",
         location: "Hyderabad, Telangana, India"
     },
@@ -19,21 +22,17 @@ const config = {
 
     images: {
         samples: {
-            corporate: { image: sampleImage, link: "https://www.instagram.com/reels/DFf22DfyY2P/" },
-            wedding: { image: sampleImage, link: "https://www.instagram.com/reels/DFf22DfyY2P/" },
-            product: { image: sampleImage, link: "https://www.instagram.com/reels/DFf22DfyY2P/" },
-            birthday: { image: sampleImage, link: "https://www.instagram.com/reels/DFf22DfyY2P/" },
-            fashion: { image: sampleImage, link: "https://www.instagram.com/reels/DFf22DfyY2P/" },
-            music: { image: sampleImage, link: "https://www.instagram.com/reels/DFf22DfyY2P/" },
-            conference: { image: sampleImage, link: "https://www.instagram.com/reels/DFf22DfyY2P/" },
-            sports: { image: sampleImage, link: "https://www.instagram.com/reels/DFf22DfyY2P/" }
+            corporate: { title: "Corporate Events", alt: "Corporate event videography in Hyderabad", image: corporateImage, link: "https://www.instagram.com/reels/DFf22DfyY2P/" },
+            wedding: { title: "Weddings", alt: "Cinematic wedding reels and photography", image: weddingImage, link: "https://www.instagram.com/reels/DFf22DfyY2P/" },
+            political: { title: "Political Campaigns", alt: "Political campaign reels and photography", image: politicalImage, link: "https://www.instagram.com/reels/DFf22DfyY2P/" },
+            birthday: { title: "Birthdays", alt: "Fun and vibrant birthday party reels", image: birthdayImage, link: "https://www.instagram.com/reels/DFf22DfyY2P/" },
         }
     },
 
     whatsapp: {
-        number: "9700223111",
-        link: "https://wa.me/9700223111?text=I%20want%20to%20book%20a%20CineReelz%20reel%20shoot",
-        customPackageLink: "https://wa.me/9700223111?text=I%20want%20to%20create%20a%20custom%20package%20with%20CineReelz"
+        number: "9493903229",
+        link: "https://wa.me/919493903229?text=I%20want%20to%20book%20a%20CineReelz%20reel%20shoot",
+        customPackageLink: "https://wa.me/919493903229?text=I%20want%20to%20create%20a%20custom%20package%20with%20CineReelz"
     },
 
     website: {
@@ -49,5 +48,4 @@ const config = {
         description: "Professional pay-and-shoot event reels delivered in 20 minutes. Specializing in weddings, birthdays, corporate events, and more."
     }
 };
-
 export default config;

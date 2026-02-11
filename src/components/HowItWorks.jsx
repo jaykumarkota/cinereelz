@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import '../styles/HowItWorks.css';
 
 const HowItWorks = () => {
@@ -29,8 +30,27 @@ const HowItWorks = () => {
         }
     ];
 
+    // Structured Data for HowTo
+    const howToSchema = {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Book a CineReelz Shoot",
+        "step": steps.map(step => ({
+            "@type": "HowToStep",
+            "position": step.number,
+            "name": step.title,
+            "text": step.description,
+            "image": "https://www.cinereelz.in/cinereelz-logo.png"
+        }))
+    };
+
     return (
         <section className="how-it-works section" id="how-it-works">
+            <Helmet>
+                <script type="application/ld+json">
+                    {JSON.stringify(howToSchema)}
+                </script>
+            </Helmet>
             <h2 className="section-title">How It <span>Works</span></h2>
             <div className="steps-container">
                 {steps.map((step, index) => (

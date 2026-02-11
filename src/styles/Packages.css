@@ -4,12 +4,30 @@
 
 .packages-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 30px;
     max-width: 1400px;
     margin: 0 auto;
+    row-gap: 40px;
 }
 
+/* First 3 cards in top row - each spans 2 columns */
+.package-card:nth-child(1),
+.package-card:nth-child(2),
+.package-card:nth-child(3) {
+    grid-column: span 2;
+}
+
+/* Last 2 cards in bottom row - centered with span of 2 columns each */
+.package-card:nth-child(4) {
+    grid-column: 2 / 4;
+}
+
+.package-card:nth-child(5) {
+    grid-column: 4 / 6;
+}
+
+/* Package Card Styling */
 .package-card {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid var(--border-color);
@@ -20,6 +38,15 @@
     overflow: visible;
     transition: all 0.3s ease;
     animation: slideUp 0.6s ease-out backwards;
+
+    /* Ensure uniform height and width */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 520px;
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
 }
 
 .package-card:nth-child(1) {
@@ -38,20 +65,26 @@
     animation-delay: 0.4s;
 }
 
+.package-card:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
 .package-card.best-seller {
     border: 2px solid var(--primary-color);
     background: rgba(204, 0, 255, 0.05);
-    transform: scale(1.05);
+    transform: scale(1.02);
+    /* Reduced slightly from 1.05 to avoid overlap */
 }
 
 .package-card:hover {
     border-color: var(--primary-color);
     transform: translateY(-8px);
     box-shadow: 0 12px 35px rgba(204, 0, 255, 0.25);
+    z-index: 2;
 }
 
 .package-card.best-seller:hover {
-    transform: translateY(-8px) scale(1.05);
+    transform: translateY(-8px) scale(1.02);
 }
 
 .best-seller-badge {
@@ -84,12 +117,13 @@
 .package-card.premium {
     border: 2px solid #d4af37;
     background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(255, 215, 0, 0.05) 100%);
-    transform: scale(1.05);
+    transform: scale(1.02);
+    /* Consistent scaling */
 }
 
 .package-card.premium:hover {
     border-color: #ffd700;
-    transform: translateY(-8px) scale(1.05);
+    transform: translateY(-8px) scale(1.02);
     box-shadow: 0 12px 35px rgba(212, 175, 55, 0.4);
 }
 
@@ -114,6 +148,22 @@
     white-space: nowrap;
 }
 
+.premium-logo-container {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+
+.premium-gold-logo {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+}
+
 .premium-badge i {
     font-size: 12px;
     animation: pulse 2s ease-in-out infinite;
@@ -124,6 +174,8 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    margin-top: 5px;
+    /* Reduced from default to fit logo better */
 }
 
 .package-card.premium .package-price {
@@ -193,6 +245,8 @@
     font-style: italic;
     margin-bottom: 25px;
     line-height: 1.6;
+    flex-grow: 0;
+    /* Don't stretch description unnecessarily */
 }
 
 .package-features {
@@ -200,6 +254,8 @@
     text-align: left;
     margin-bottom: 25px;
     padding: 0;
+    flex-grow: 1;
+    /* Let features fill space */
 }
 
 .package-features li {
@@ -224,34 +280,65 @@
 }
 
 .package-cta {
-    margin-top: 15px;
+    margin-top: auto;
+    width: 100%;
 }
 
 /* Responsive */
 @media (max-width: 1200px) {
     .packages-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
+        gap: 30px;
     }
 
-    .package-card.best-seller {
-        transform: scale(1.02);
+    /* Reset grid columns for responsive layout */
+    .package-card:nth-child(1),
+    .package-card:nth-child(2),
+    .package-card:nth-child(3),
+    .package-card:nth-child(4) {
+        grid-column: auto;
     }
 
-    .package-card.best-seller:hover {
-        transform: translateY(-8px) scale(1.02);
+    /* Center the 5th card on tablets (span 2 cols) to align it nicely */
+    .package-card:nth-child(5) {
+        grid-column: 1 / -1;
+        max-width: 380px;
+        margin: 0 auto;
+    }
+
+    .package-card.best-seller,
+    .package-card.premium {
+        transform: scale(1);
+        /* Remove scale diff on tablet/mobile */
+    }
+
+    .package-card.best-seller:hover,
+    .package-card.premium:hover {
+        transform: translateY(-8px) scale(1);
     }
 }
 
 @media (max-width: 768px) {
     .packages-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: 25px;
+    }
+
+    /* All cards span 1 column in mobile */
+    .package-card:nth-child(1),
+    .package-card:nth-child(2),
+    .package-card:nth-child(3),
+    .package-card:nth-child(4),
+    .package-card:nth-child(5) {
+        grid-column: auto;
     }
 
     .package-card {
         padding: 25px 20px;
-        margin-top: 20px;
+        margin: 0 auto;
+        /* Center single column */
+        min-height: auto;
+        /* Let height be natural on mobile */
     }
 
     .package-name {
