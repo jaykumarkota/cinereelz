@@ -21,7 +21,7 @@ const Packages = () => {
         },
         {
             name: "Standard",
-            price: "₹9,999",
+            price: "₹5,499",
             description: "One experience. One story. Cinematically captured.",
             features: [
                 "One event coverage",
@@ -34,7 +34,7 @@ const Packages = () => {
         },
         {
             name: "Spotlight",
-            price: "₹27,999",
+            price: "₹21,999",
             description: "Three events, one polished narrative.",
             features: [
                 "Covers 3 events",
@@ -47,7 +47,7 @@ const Packages = () => {
         },
         {
             name: "Premier",
-            price: "₹45,999",
+            price: "₹27,459",
             description: "Every detail, from start to finish.",
             features: [
                 "Covers 4 events",
@@ -60,7 +60,7 @@ const Packages = () => {
         },
         {
             name: "Grand Finale",
-            price: "₹72,999",
+            price: "₹43,999",
             description: "The entire story.",
             features: [
                 "Covers 6 events",

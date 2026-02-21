@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import '../styles/Testimonials.css';
 
 const Testimonials = () => {
+    const scrollRef = useRef(null);
+    const [activeIndex, setActiveIndex] = useState(0);
+
     const testimonials = [
         {
             name: "Lucky",
@@ -12,7 +15,7 @@ const Testimonials = () => {
         {
             name: "Janaki",
             role: "Birthday Celebration",
-            content: "Honestly, I didn’t expect such professional output in just 20 minutes. They captured the vibe perfectly without being intrusive. It felt like they were part of the celebration!",
+            content: "Honestly, I didn't expect such professional output in just 20 minutes. They captured the vibe perfectly without being intrusive. It felt like they were part of the celebration!",
             rating: 5
         },
         {
@@ -23,10 +26,38 @@ const Testimonials = () => {
         }
     ];
 
+    const handleScroll = useCallback(() => {
+        const container = scrollRef.current;
+        if (!container) return;
+        const scrollLeft = container.scrollLeft;
+        const cardWidth = container.firstElementChild?.offsetWidth || 1;
+        const gap = 16;
+        const index = Math.round(scrollLeft / (cardWidth + gap));
+        setActiveIndex(Math.min(index, testimonials.length - 1));
+    }, [testimonials.length]);
+
+    useEffect(() => {
+        const container = scrollRef.current;
+        if (!container) return;
+        container.addEventListener('scroll', handleScroll, { passive: true });
+        return () => container.removeEventListener('scroll', handleScroll);
+    }, [handleScroll]);
+
+    const scrollToIndex = (index) => {
+        const container = scrollRef.current;
+        if (!container) return;
+        const cardWidth = container.firstElementChild?.offsetWidth || 1;
+        const gap = 16;
+        container.scrollTo({
+            left: index * (cardWidth + gap),
+            behavior: 'smooth'
+        });
+    };
+
     return (
         <section className="testimonials section" id="testimonials">
             <h2 className="section-title">What Our <span>Clients Say</span></h2>
-            <div className="testimonials-grid">
+            <div className="testimonials-grid" ref={scrollRef}>
                 {testimonials.map((testimonial, index) => (
                     <div
                         key={index}
@@ -51,8 +82,19 @@ const Testimonials = () => {
                     </div>
                 ))}
             </div>
+            <div className="testimonials-dots">
+                {testimonials.map((_, index) => (
+                    <button
+                        key={index}
+                        className={`testimonial-dot ${index === activeIndex ? 'active' : ''}`}
+                        onClick={() => scrollToIndex(index)}
+                        aria-label={`Go to review ${index + 1}`}
+                    />
+                ))}
+            </div>
         </section>
     );
 };
 
 export default Testimonials;
+
