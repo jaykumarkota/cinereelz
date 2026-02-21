@@ -194,11 +194,11 @@
 .samples-cta .cta-button {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    padding: 12px 26px;
+    gap: 6px;
+    font-size: 12px;
+    padding: 8px 18px;
     background: transparent;
-    border: 2px solid var(--primary-color);
+    border: 1.5px solid var(--primary-color);
     color: var(--primary-color);
 }
 
@@ -209,7 +209,7 @@
 }
 
 .samples-cta .cta-button i {
-    font-size: 16px;
+    font-size: 13px;
 }
 
 /* Modal */
@@ -358,8 +358,8 @@
 
 @media (max-width: 480px) {
     .samples-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
     }
 
     .sample-overlay i {

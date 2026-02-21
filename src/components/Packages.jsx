@@ -3,7 +3,8 @@ import '../styles/Packages.css';
 import goldLogo from '../assets/cinereelz-logo-gold.png';
 
 const Packages = () => {
-    const whatsappLink = "https://wa.me/919493903229?text=I%20want%20to%20book%20a%20CineReelz%20reel%20shoot";
+    const getWhatsappLink = (pkgName) =>
+        `https://wa.me/919493903229?text=${encodeURIComponent(`Hi, I want to book the ${pkgName} Package from CineReelz`)}`;
 
     const packages = [
         {
@@ -108,7 +109,7 @@ const Packages = () => {
                             ))}
                         </ul>
                         <div className="package-cta">
-                            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                            <a href={getWhatsappLink(pkg.name)} target="_blank" rel="noopener noreferrer">
                                 <button className="cta-button">Book Now</button>
                             </a>
                         </div>

@@ -31,7 +31,7 @@ const Testimonials = () => {
         if (!container) return;
         const scrollLeft = container.scrollLeft;
         const cardWidth = container.firstElementChild?.offsetWidth || 1;
-        const gap = 16;
+        const gap = 14;
         const index = Math.round(scrollLeft / (cardWidth + gap));
         setActiveIndex(Math.min(index, testimonials.length - 1));
     }, [testimonials.length]);
@@ -47,11 +47,28 @@ const Testimonials = () => {
         const container = scrollRef.current;
         if (!container) return;
         const cardWidth = container.firstElementChild?.offsetWidth || 1;
-        const gap = 16;
-        container.scrollTo({
-            left: index * (cardWidth + gap),
-            behavior: 'smooth'
-        });
+        const gap = 14;
+        const targetScroll = index * (cardWidth + gap);
+        const startScroll = container.scrollLeft;
+        const distance = targetScroll - startScroll;
+        const duration = 600;
+        let startTime = null;
+
+        const easeInOutCubic = (t) =>
+            t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+        const animateScroll = (currentTime) => {
+            if (!startTime) startTime = currentTime;
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = easeInOutCubic(progress);
+            container.scrollLeft = startScroll + distance * eased;
+            if (progress < 1) {
+                requestAnimationFrame(animateScroll);
+            }
+        };
+
+        requestAnimationFrame(animateScroll);
     };
 
     return (
