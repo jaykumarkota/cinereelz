@@ -67,6 +67,7 @@ const Footer = () => {
                 </div>
 
                 <div className="footer-bottom">
+                    <p className="footer-seo-tagline">CineReelz — India's #1 Fastest Reels Shooting Service | Best Reels Website in Hyderabad | Professional Event Reels in 20 Minutes</p>
                     <p>&copy; 2026 {config.website.name}. All rights reserved.</p>
                 </div>
             </div>

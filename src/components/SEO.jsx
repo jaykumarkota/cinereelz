@@ -3,10 +3,10 @@ import { Helmet } from 'react-helmet-async';
 import config from '../config/siteConfig';
 
 const SEO = ({ title, description, keywords, image, url, type = 'website' }) => {
-    const siteTitle = title ? `${title} | ${config.website.name}` : `${config.website.name} | Professional Event Reels`;
-    const siteDescription = description || config.business.description;
-    const siteKeywords = keywords || "event reels, wedding reels, corporate event videos, cinematic reels, Hyderabad videography";
-    const siteImage = image || `${config.website.url}/cinereelz-hero.png`; // Ensure this image exists in public folder
+    const siteTitle = title ? `${title} | ${config.website.name}` : `India's #1 Fastest Reels Shooting Service | ${config.website.name} – Event Reels in 20 Minutes | Hyderabad`;
+    const siteDescription = description || "CineReelz is India's number one reels shooting service and Hyderabad's best reels website. Get stunning cinematic event reels delivered in just 20 minutes! Fastest reels shooting for weddings, birthdays, corporate events & more. Shot on iPhone & Drone. Book India's top reel makers now!";
+    const siteKeywords = keywords || "India number one reels shoot, best reels website India, fastest reels shooting, best reels shooting in Hyderabad, Hyderabad reels service, number one reels Hyderabad, reels shooting Hyderabad, best reel makers India, best reel makers Hyderabad, instant reels delivery, pay and shoot reels India, wedding reels Hyderabad, event reels near me, professional reels shooting India, cinematic reels India, drone reel shoot, iPhone reel shoot India, 20 minute reels, CineReelz, cinereelz Hyderabad";
+    const siteImage = image || `${config.website.url}/cinereelz-hero.png`;
     const siteUrl = url || config.website.url;
 
     return (

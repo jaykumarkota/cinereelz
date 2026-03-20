@@ -4,9 +4,6 @@ Allow: /
 # Sitemaps
 Sitemap: https://www.cinereelz.in/sitemap.xml
 
-# Crawl-delay
-Crawl-delay: 1
-
 # Disallow admin or private areas (if any in future)
 Disallow: /admin/
 Disallow: /private/

@@ -38,6 +38,7 @@ const WhyChooseUs = () => {
     return (
         <section className="why-choose-us section" id="why-choose-us">
             <h2 className="section-title">Why Choose <span>CineReelz</span></h2>
+            <p className="section-subtitle">India's number one reels shooting service — trusted by hundreds across Hyderabad and India for the fastest, most cinematic event reels delivered in just 20 minutes.</p>
             <div className="features-grid">
                 {features.map((feature, index) => (
                     <div

@@ -43,9 +43,10 @@ const config = {
 
     business: {
         tagline: "Your Vision, our Lens, Stories Unload.",
-        fastestServiceTagline: "India's Fastest Reel-Making Service",
+        fastestServiceTagline: "India's #1 Fastest Reel-Making Service",
         deliveryTime: "20 minutes",
-        description: "Professional pay-and-shoot event reels delivered in 20 minutes. Specializing in weddings, birthdays, corporate events, and more."
+        description: "CineReelz is India's number one reels shooting service. The best reels website and fastest reels shooting company in Hyderabad — professional pay-and-shoot event reels delivered in 20 minutes.",
+        seoKeywords: "India number one reels shoot, best reels website India, fastest reels shooting, best reels shooting in Hyderabad, Hyderabad reels service, number one reels Hyderabad, CineReelz"
     }
 };
 export default config;

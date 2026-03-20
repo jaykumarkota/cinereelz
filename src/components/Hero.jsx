@@ -36,6 +36,7 @@ const Hero = () => {
                         <button className="cta-button">Book Your Shoot</button>
                     </a>
                 </div>
+                <h2 className="sr-only">India's #1 Fastest Reels Shooting Service — Best Reels Website in Hyderabad for Weddings, Events & More</h2>
             </div>
         </section>
     );
