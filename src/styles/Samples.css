@@ -50,7 +50,30 @@
     box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.5);
     transition: transform 0.4s ease,
         box-shadow 0.4s ease;
-    animation: slideUp 0.8s ease-out backwards;
+    opacity: 0;
+    transform: translateY(60px);
+}
+
+.sample-item.visible {
+    animation: sampleSlideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes sampleSlideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .sample-item {
+        opacity: 1;
+        transform: none;
+    }
+    .sample-item.visible {
+        animation: none;
+    }
 }
 
 .sample-image {

@@ -43,6 +43,27 @@ const Testimonials = () => {
         return () => container.removeEventListener('scroll', handleScroll);
     }, [handleScroll]);
 
+    useEffect(() => {
+        const cards = scrollRef.current?.querySelectorAll('.testimonial-card');
+        if (!cards) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
+        );
+
+        cards.forEach((card) => observer.observe(card));
+
+        return () => observer.disconnect();
+    }, []);
+
     const scrollToIndex = (index) => {
         const container = scrollRef.current;
         if (!container) return;

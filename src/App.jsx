@@ -5,6 +5,8 @@ import SEO from './components/SEO';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import WhyChooseUs from './components/WhyChooseUs';
+import About from './components/About';
+import WhatWeCover from './components/WhatWeCover';
 import Packages from './components/Packages';
 import CustomPackage from './components/CustomPackage';
 import HowItWorks from './components/HowItWorks';
@@ -26,6 +28,12 @@ function App() {
         </div>
         <div id="why-choose-us">
           <WhyChooseUs />
+        </div>
+        <div id="about">
+          <About />
+        </div>
+        <div id="what-we-cover">
+          <WhatWeCover />
         </div>
         <div id="packages">
           <Packages />

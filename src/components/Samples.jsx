@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../styles/Samples.css';
 import config from '../config/siteConfig';
 
 const Samples = () => {
     const [modalOpen, setModalOpen] = useState(false);
     const [selectedSample, setSelectedSample] = useState(null);
+    const gridRef = useRef(null);
 
     const samples = [
         { id: 1, ...config.images.samples.corporate },
@@ -12,6 +13,27 @@ const Samples = () => {
         { id: 3, ...config.images.samples.political },
         { id: 4, ...config.images.samples.birthday }
     ];
+
+    useEffect(() => {
+        const items = gridRef.current?.querySelectorAll('.sample-item');
+        if (!items) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
+        );
+
+        items.forEach((item) => observer.observe(item));
+
+        return () => observer.disconnect();
+    }, []);
 
     const openModal = (sample) => {
         setSelectedSample(sample);
@@ -34,11 +56,12 @@ const Samples = () => {
                 for the latest trends.
             </p>
 
-            <div className="samples-grid">
-                {samples.map((sample) => (
+            <div className="samples-grid" ref={gridRef}>
+                {samples.map((sample, index) => (
                     <div
                         key={sample.id}
                         className="sample-item"
+                        style={{ animationDelay: `${index * 0.15}s` }}
                         onClick={() => openModal(sample)}
                         role="button"
                         tabIndex={0}

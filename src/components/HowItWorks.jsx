@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import '../styles/HowItWorks.css';
 
 const HowItWorks = () => {
+    const containerRef = useRef(null);
+
     const steps = [
         {
             number: 1,
@@ -30,6 +32,27 @@ const HowItWorks = () => {
         }
     ];
 
+    useEffect(() => {
+        const items = containerRef.current?.querySelectorAll('.step');
+        if (!items) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
+        );
+
+        items.forEach((item) => observer.observe(item));
+
+        return () => observer.disconnect();
+    }, []);
+
     // Structured Data for HowTo
     const howToSchema = {
         "@context": "https://schema.org",
@@ -52,7 +75,7 @@ const HowItWorks = () => {
                 </script>
             </Helmet>
             <h2 className="section-title">How It <span>Works</span></h2>
-            <div className="steps-container">
+            <div className="steps-container" ref={containerRef}>
                 {steps.map((step, index) => (
                     <div
                         key={index}

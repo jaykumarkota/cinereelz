@@ -10,40 +10,6 @@
     margin: 0 auto;
 }
 
-.feature.why-item {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--border-color);
-    border-radius: 15px;
-    padding: 35px 30px;
-    text-align: center;
-    transition: all 0.3s ease;
-    animation: slideUp 0.6s ease-out backwards;
-}
-
-.why-item:nth-child(1) {
-    animation-delay: 0.1s;
-}
-
-.why-item:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.why-item:nth-child(3) {
-    animation-delay: 0.3s;
-}
-
-.why-item:nth-child(4) {
-    animation-delay: 0.4s;
-}
-
-.why-item:nth-child(5) {
-    animation-delay: 0.5s;
-}
-
-.why-item:nth-child(6) {
-    animation-delay: 0.6s;
-}
-
 .feature-card {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid var(--border-color);
@@ -52,7 +18,32 @@
     text-align: center;
     transition: all 0.3s ease;
     position: relative;
-    animation: fadeInUp 0.8s ease;
+    overflow: hidden;
+
+    opacity: 0;
+    transform: translateY(60px);
+}
+
+.feature-card.visible {
+    animation: featureSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes featureSlideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .feature-card {
+        opacity: 1;
+        transform: none;
+    }
+
+    .feature-card.visible {
+        animation: none;
+    }
 }
 
 .feature-card:hover {
@@ -88,69 +79,65 @@
     line-height: 1.7;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .why-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-
-    .why-item {
-        padding: 25px 20px;
-    }
-
-    .why-icon {
-        font-size: 36px;
-        margin-bottom: 12px;
-    }
-
-    .why-item h3 {
-        font-size: 17px;
-        margin-bottom: 8px;
-    }
-
-    .why-item p {
-        font-size: 13px;
-    }
+/* Dots - hidden on desktop */
+.features-dots {
+    display: none;
 }
 
-@media (max-width: 480px) {
-    .why-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
-    }
-
-    .why-item {
-        padding: 22px 18px;
-    }
-
-    .why-icon {
-        font-size: 32px;
-    }
-
-    .why-item h3 {
-        font-size: 16px;
-    }
-
-    .why-item p {
-        font-size: 13px;
-    }
-}
-
+/* Responsive - Tablet */
 @media (max-width: 992px) {
     .features-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
+/* Responsive - Mobile: horizontal swipeable slider */
 @media (max-width: 768px) {
+    .why-choose-us .section-title {
+        margin-bottom: 60px;
+    }
+
+    .why-choose-us .section-subtitle {
+        margin-bottom: 28px;
+    }
+
     .features-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        gap: 14px;
+        padding: 0 16px 10px;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .features-grid::-webkit-scrollbar {
+        display: none;
     }
 
     .feature-card {
-        padding: 30px;
+        flex: 0 0 75vw;
+        min-height: 220px;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+        padding: 28px 22px;
+        backdrop-filter: blur(6px);
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--border-color);
+        border-radius: 15px;
+        /* Override desktop hidden state for mobile auto-scroll */
+        opacity: 1;
+        transform: none;
+        animation: none;
+        transition: transform 0.4s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+        transform: none;
+        border-color: var(--border-color);
+        box-shadow: none;
     }
 
     .feature-icon {
@@ -163,5 +150,30 @@
 
     .feature-card p {
         font-size: 14px;
+    }
+
+    /* Dots hidden */
+    .features-dots {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .feature-card {
+        flex: 0 0 78vw;
+        min-height: 200px;
+        padding: 24px 18px;
+    }
+
+    .feature-card p {
+        font-size: 13px;
+    }
+
+    .feature-icon {
+        font-size: 32px;
+    }
+
+    .feature-card h3 {
+        font-size: 16px;
     }
 }

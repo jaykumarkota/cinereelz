@@ -13,7 +13,7 @@ const Packages = () => {
             description: "Your love story from above and beyond.",
             features: [
                 "Cinematic drone footage",
-                "iPhone cinematic editing",
+                "Signature Cinematic Edit",
                 "1 event coverage",
                 "1 professionally edited video",
                 "Terms and conditions apply"
@@ -27,7 +27,7 @@ const Packages = () => {
             features: [
                 "One event coverage",
                 "3 reels professionally captured",
-                "Edited on iPhone",
+                "Signature Cinematic Edit",
                 "Raw footage included",
                 "Instant delivery"
             ],
@@ -40,7 +40,7 @@ const Packages = () => {
             features: [
                 "Covers 3 events",
                 "12 reels",
-                "iPhone editing",
+                "Signature Cinematic Edit",
                 "Raw footage included",
                 "Instant delivery"
             ],
@@ -53,7 +53,7 @@ const Packages = () => {
             features: [
                 "Covers 4 events",
                 "15 reels",
-                "iPhone editing",
+                "Signature Cinematic Edit",
                 "Raw footage included",
                 "Instant delivery"
             ],
@@ -66,7 +66,7 @@ const Packages = () => {
             features: [
                 "Covers 6 events",
                 "24 reels",
-                "iPhone editing",
+                "Signature Cinematic Edit",
                 "Raw footage included",
                 "Instant delivery"
             ],
