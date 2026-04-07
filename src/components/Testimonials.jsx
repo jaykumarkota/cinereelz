@@ -1,40 +1,40 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import '../styles/Testimonials.css';
 
+const testimonials = [
+    {
+        name: 'Lucky',
+        role: "Sister's Wedding",
+        content: 'We were amazed by how quickly we got the reels! The quality was stunning, and seeing the videos while the event was still happening was just magical. Everyone kept asking who the team was!',
+        rating: 5
+    },
+    {
+        name: 'Janaki',
+        role: 'Birthday Celebration',
+        content: "Honestly, I didn't expect such professional output in just 20 minutes. They captured the vibe perfectly without being intrusive. It felt like they were part of the celebration!",
+        rating: 5
+    },
+    {
+        name: 'Surya',
+        role: 'Corporate Event',
+        content: 'The best decision we made for our event. The team was super friendly and the final reels were just beautiful. Sharing them instantly with colleagues made it so much fun!',
+        rating: 5
+    }
+];
+
 const Testimonials = () => {
     const scrollRef = useRef(null);
     const [activeIndex, setActiveIndex] = useState(0);
-
-    const testimonials = [
-        {
-            name: "Lucky",
-            role: "Sister's Wedding",
-            content: "We were amazed by how quickly we got the reels! The quality was stunning, and seeing the videos while the event was still happening was just magical. Everyone kept asking who the team was!",
-            rating: 5
-        },
-        {
-            name: "Janaki",
-            role: "Birthday Celebration",
-            content: "Honestly, I didn't expect such professional output in just 20 minutes. They captured the vibe perfectly without being intrusive. It felt like they were part of the celebration!",
-            rating: 5
-        },
-        {
-            name: "Surya",
-            role: "Corporate Event",
-            content: "The best decision we made for our event. The team was super friendly and the final reels were just beautiful. Sharing them instantly with colleagues made it so much fun!",
-            rating: 5
-        }
-    ];
 
     const handleScroll = useCallback(() => {
         const container = scrollRef.current;
         if (!container) return;
         const scrollLeft = container.scrollLeft;
         const cardWidth = container.firstElementChild?.offsetWidth || 1;
-        const gap = 14;
+        const gap = 18;
         const index = Math.round(scrollLeft / (cardWidth + gap));
         setActiveIndex(Math.min(index, testimonials.length - 1));
-    }, [testimonials.length]);
+    }, []);
 
     useEffect(() => {
         const container = scrollRef.current;
@@ -68,62 +68,49 @@ const Testimonials = () => {
         const container = scrollRef.current;
         if (!container) return;
         const cardWidth = container.firstElementChild?.offsetWidth || 1;
-        const gap = 14;
+        const gap = 18;
         const targetScroll = index * (cardWidth + gap);
-        const startScroll = container.scrollLeft;
-        const distance = targetScroll - startScroll;
-        const duration = 600;
-        let startTime = null;
-
-        const easeInOutCubic = (t) =>
-            t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-
-        const animateScroll = (currentTime) => {
-            if (!startTime) startTime = currentTime;
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const eased = easeInOutCubic(progress);
-            container.scrollLeft = startScroll + distance * eased;
-            if (progress < 1) {
-                requestAnimationFrame(animateScroll);
-            }
-        };
-
-        requestAnimationFrame(animateScroll);
+        container.scrollTo({ left: targetScroll, behavior: 'smooth' });
     };
 
     return (
         <section className="testimonials section" id="testimonials">
-            <h2 className="section-title">What Our <span>Clients Say</span></h2>
+            <div className="section-heading">
+                <span className="section-eyebrow">Client Notes</span>
+                <h2 className="section-title">What Our <span>Clients Say</span></h2>
+                <p className="section-subtitle">
+                    Real reactions from people who wanted fast delivery, cleaner edits, and a team that could keep up with the energy of the event.
+                </p>
+            </div>
+
             <div className="testimonials-grid" ref={scrollRef}>
                 {testimonials.map((testimonial, index) => (
-                    <div
-                        key={index}
+                    <article
+                        key={testimonial.name}
                         className="testimonial-card"
-                        style={{ animationDelay: `${index * 0.15}s` }}
+                        style={{ animationDelay: `${index * 0.12}s` }}
                     >
                         <div className="testimonial-rating">
                             {[...Array(testimonial.rating)].map((_, i) => (
-                                <i key={i} className="fa-solid fa-star"></i>
+                                <i key={i} className="fa-solid fa-star" aria-hidden="true"></i>
                             ))}
                         </div>
-                        <p className="testimonial-content">"{testimonial.content}"</p>
+                        <p className="testimonial-content">&quot;{testimonial.content}&quot;</p>
                         <div className="testimonial-author">
-                            <div className="author-avatar">
-                                {testimonial.name.charAt(0)}
-                            </div>
+                            <div className="author-avatar">{testimonial.name.charAt(0)}</div>
                             <div className="author-info">
                                 <h4>{testimonial.name}</h4>
                                 <p>{testimonial.role}</p>
                             </div>
                         </div>
-                    </div>
+                    </article>
                 ))}
             </div>
+
             <div className="testimonials-dots">
-                {testimonials.map((_, index) => (
+                {testimonials.map((testimonial, index) => (
                     <button
-                        key={index}
+                        key={testimonial.name}
                         className={`testimonial-dot ${index === activeIndex ? 'active' : ''}`}
                         onClick={() => scrollToIndex(index)}
                         aria-label={`Go to review ${index + 1}`}
@@ -135,4 +122,3 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
-

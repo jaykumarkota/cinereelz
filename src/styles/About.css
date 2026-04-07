@@ -1,41 +1,15 @@
-/* ==============================
-   ABOUT SECTION
-   ============================== */
-
 .about {
-    background: var(--bg-dark);
     position: relative;
+    background:
+        radial-gradient(circle at center, rgba(204, 0, 255, 0.05) 0%, transparent 42%),
+        var(--bg-dark);
     overflow: hidden;
 }
 
-/* ---- About Title Tweaks ---- */
-.about .section-title {
-    margin-bottom: 25px;
-}
-
-.about .section-subtitle {
-    margin: 0 auto 70px;
-}
-
-/* Ambient background glow */
-.about::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(204, 0, 255, 0.04) 0%, transparent 70%);
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-}
-
-/* ---- Scroll-triggered animation ---- */
 .about-animate {
     opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .about-animate.about-visible {
@@ -43,110 +17,115 @@
     transform: translateY(0);
 }
 
-/* stagger children */
-.about-animate:nth-child(2) { transition-delay: 0.1s; }
-.about-animate:nth-child(3) { transition-delay: 0.2s; }
-
-/* ---- Team grid ---- */
 .about-team {
     display: flex;
     flex-direction: column;
-    gap: 70px;
-    max-width: 1050px;
+    gap: 30px;
+    max-width: 1160px;
     margin: 0 auto;
 }
 
-/* ---- Member card ---- */
 .about-member {
-    display: flex;
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 34px;
     align-items: center;
-    gap: 60px;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--border-color);
-    border-radius: 24px;
-    padding: 50px;
-    position: relative;
-    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+    padding: 34px;
+    border: 1px solid var(--surface-border);
+    border-radius: 30px;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.025) 100%),
+        rgba(12, 12, 18, 0.96);
+    box-shadow: var(--surface-shadow);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .about-member:hover {
-    border-color: rgba(204, 0, 255, 0.45);
-    box-shadow: 0 8px 40px rgba(204, 0, 255, 0.1);
+    transform: translateY(-6px);
+    border-color: var(--surface-border-strong);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.26);
 }
 
 .about-member-reverse {
-    flex-direction: row-reverse;
+    grid-template-columns: minmax(0, 1fr) 280px;
 }
 
-/* ---- Image ---- */
+.about-member-reverse .about-member-image-wrap {
+    order: 2;
+}
+
 .about-member-image-wrap {
     position: relative;
-    flex-shrink: 0;
 }
 
 .about-member-glow {
     position: absolute;
-    inset: -12px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(204, 0, 255, 0.2) 0%, transparent 70%);
-    filter: blur(18px);
-    z-index: 0;
-    transition: opacity 0.4s ease;
+    inset: -16px;
+    border-radius: 28px;
+    background: radial-gradient(circle at center, rgba(204, 0, 255, 0.22), transparent 72%);
+    filter: blur(22px);
+    opacity: 0.55;
+    transition: opacity 0.3s ease;
 }
 
 .about-member:hover .about-member-glow {
-    opacity: 1.3;
+    opacity: 0.85;
 }
 
 .about-member-image {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid rgba(204, 0, 255, 0.35);
     position: relative;
     z-index: 1;
-    transition: transform 0.4s ease, border-color 0.4s ease;
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 26px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.about-member:hover .about-member-image {
-    transform: scale(1.04);
-    border-color: var(--primary-color);
-}
-
-/* ---- Info ---- */
 .about-member-info {
-    flex: 1;
+    position: relative;
+    z-index: 1;
+}
+
+.about-member-kicker {
+    display: inline-flex;
+    margin-bottom: 12px;
+    color: #d7a6ff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
 }
 
 .about-member-name {
-    font-size: 28px;
+    margin-bottom: 10px;
+    font-size: clamp(2rem, 4vw, 3.1rem);
     color: var(--text-white);
-    margin-bottom: 6px;
-    letter-spacing: -0.3px;
+    line-height: 1;
+    letter-spacing: -0.05em;
 }
 
 .about-member-role {
-    display: inline-block;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--primary-color);
-    background: rgba(204, 0, 255, 0.1);
-    padding: 5px 16px;
-    border-radius: 50px;
+    display: inline-flex;
     margin-bottom: 18px;
-    letter-spacing: 0.3px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(232, 154, 255, 0.22);
+    background: rgba(204, 0, 255, 0.09);
+    color: #efb6ff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
 }
 
 .about-member-bio {
+    margin-bottom: 24px;
+    color: rgba(255, 255, 255, 0.68);
     font-size: 16px;
-    color: var(--text-gray);
-    line-height: 1.8;
-    margin-bottom: 22px;
+    line-height: 1.85;
 }
 
-/* ---- Tags ---- */
 .about-member-tags {
     display: flex;
     flex-wrap: wrap;
@@ -154,103 +133,66 @@
 }
 
 .about-member-tags span {
+    padding: 8px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.68);
     font-size: 12px;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 5px 14px;
-    border-radius: 50px;
-    transition: border-color 0.3s ease, color 0.3s ease;
 }
 
-.about-member-tags span:hover {
-    border-color: var(--primary-color);
-    color: var(--primary-color);
-}
-
-/* ==============================
-   RESPONSIVE — Tablet
-   ============================== */
-@media (max-width: 992px) {
-    .about-member {
-        gap: 40px;
-        padding: 40px;
-    }
-
-    .about-member-image {
-        width: 180px;
-        height: 180px;
-    }
-
-    .about-member-name {
-        font-size: 24px;
-    }
-}
-
-/* ==============================
-   RESPONSIVE — Mobile
-   ============================== */
-@media (max-width: 768px) {
-    .about-team {
-        gap: 40px;
-    }
-
+@media (max-width: 980px) {
     .about-member,
     .about-member-reverse {
-        flex-direction: column;
-        text-align: center;
-        padding: 36px 28px;
-        gap: 28px;
+        grid-template-columns: 1fr;
+    }
+
+    .about-member-reverse .about-member-image-wrap {
+        order: 0;
     }
 
     .about-member-image {
-        width: 160px;
-        height: 160px;
-    }
-
-    .about-member-name {
-        font-size: 22px;
-    }
-
-    .about-member-role {
-        font-size: 12px;
-    }
-
-    .about-member-bio {
-        font-size: 15px;
-    }
-
-    .about-member-tags {
-        justify-content: center;
-    }
-
-    .about .section-title {
-        margin-bottom: 20px;
-    }
-
-    .about .section-subtitle {
-        margin: 0 auto 50px;
+        height: 300px;
     }
 }
 
-/* ==============================
-   RESPONSIVE — Small Mobile
-   ============================== */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+    .about-team {
+        gap: 24px;
+    }
+
     .about-member {
-        padding: 28px 20px;
+        gap: 22px;
+        padding: 24px;
+        border-radius: 24px;
     }
 
     .about-member-image {
-        width: 140px;
-        height: 140px;
+        height: 250px;
+        border-radius: 20px;
     }
 
     .about-member-name {
-        font-size: 20px;
+        font-size: clamp(1.9rem, 8vw, 2.5rem);
     }
 
     .about-member-bio {
         font-size: 14px;
+        line-height: 1.75;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-member {
+        padding: 20px 18px;
+    }
+
+    .about-member-image {
+        height: 220px;
+    }
+
+    .about-member-role,
+    .about-member-tags span {
+        font-size: 11px;
     }
 }

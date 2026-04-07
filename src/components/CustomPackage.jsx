@@ -7,6 +7,7 @@ const CustomPackage = () => {
         <section className="custom-package section" id="custom-package">
             <div className="custom-package-container">
                 <div className="custom-package-content">
+                    <span className="section-eyebrow">Tailored Plan</span>
                     <div className="custom-package-icon">
                         <i className="fa-solid fa-wand-magic-sparkles"></i>
                     </div>

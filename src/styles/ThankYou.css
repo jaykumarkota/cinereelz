@@ -1,112 +1,156 @@
 .thank-you {
-    background: var(--bg-dark);
+    background:
+        radial-gradient(circle at top center, rgba(204, 0, 255, 0.08), transparent 24%),
+        var(--bg-dark);
     text-align: center;
-    min-height: 50vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
-.thank-you-content {
-    max-width: 800px;
-    animation: fadeInUp 1s ease;
+.thank-you-container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 42px 38px;
+    border: 1px solid var(--surface-border);
+    border-radius: 32px;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.025) 100%),
+        rgba(12, 12, 18, 0.96);
+    box-shadow: var(--surface-shadow);
+}
+
+.thank-you-title {
+    margin-bottom: 16px;
+    color: var(--text-white);
+    font-size: clamp(2.6rem, 5vw, 4.2rem);
+    line-height: 0.98;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+}
+
+.thank-you-title span {
+    background: linear-gradient(135deg, #f0a7ff 0%, #8be2ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .thank-you-message {
-    font-size: 20px;
-    color: var(--text-gray);
-    line-height: 1.8;
-    margin-bottom: 35px;
-}
-
-.thank-you-message strong {
-    color: var(--primary-color);
-    font-weight: 600;
-}
-
-.contact-info {
-    margin: 35px 0 25px;
-}
-
-.contact-label {
-    font-size: 18px;
-    color: var(--text-white);
-    margin-bottom: 10px;
-    font-weight: 600;
+    max-width: 720px;
+    margin: 0 auto 28px;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 17px;
+    line-height: 1.85;
 }
 
 .thank-you-cta {
-    margin-top: 25px;
-    margin-bottom: 35px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 28px;
 }
 
 .thank-you-cta .cta-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 17px;
-    padding: 16px 36px;
+    min-width: 220px;
 }
 
-.thank-you-cta .cta-button i {
-    font-size: 20px;
+.thank-you-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 220px;
+    min-height: 58px;
+    padding: 16px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-white);
+    font-size: 15px;
+    font-weight: 600;
 }
 
 .contact-details {
-    margin-top: 30px;
-    padding-top: 30px;
-    border-top: 1px solid var(--border-color);
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
 }
 
-.contact-details p {
-    color: var(--text-gray);
-    font-size: 15px;
+.contact-item {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 14px;
+    padding: 18px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.04);
+    text-align: left;
+    transition: transform 0.24s ease, border-color 0.24s ease;
 }
 
-.contact-details i {
-    color: var(--primary-color);
-    font-size: 16px;
+.contact-item:hover {
+    transform: translateY(-3px);
+    border-color: rgba(232, 154, 255, 0.24);
 }
 
-.contact-details a {
+.contact-item i {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: rgba(204, 0, 255, 0.09);
+    color: #efb6ff;
+}
+
+.contact-item span {
+    display: block;
+    margin-bottom: 4px;
+    color: rgba(255, 255, 255, 0.48);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.contact-item strong {
     color: var(--text-white);
-    transition: color 0.3s ease;
+    font-size: 15px;
 }
 
-.contact-details a:hover {
-    color: var(--primary-color);
-}
-
-/* Responsive */
 @media (max-width: 768px) {
+    .thank-you-container {
+        padding: 28px 22px;
+        border-radius: 26px;
+    }
+
     .thank-you-message {
-        font-size: 18px;
+        font-size: 15px;
     }
 
-    .contact-label {
-        font-size: 16px;
+    .thank-you-cta {
+        flex-direction: column;
     }
 
-    .thank-you-cta .cta-button {
-        font-size: 16px;
-        padding: 14px 32px;
+    .thank-you-cta .cta-button,
+    .thank-you-secondary {
+        width: 100%;
+        min-width: 0;
     }
 
     .contact-details {
-        flex-direction: column;
-        gap: 15px;
-        align-items: center;
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .thank-you-container {
+        padding: 24px 18px;
     }
 
-    .contact-details p {
+    .thank-you-message {
         font-size: 14px;
+    }
+
+    .contact-item {
+        padding: 16px;
     }
 }

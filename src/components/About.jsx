@@ -3,6 +3,25 @@ import '../styles/About.css';
 import ashokImg from '../assets/ashok-img.jpeg';
 import nanduImg from '../assets/nandu-img.webp';
 
+const teamMembers = [
+    {
+        name: 'Ammireddy Ashok Reddy',
+        role: 'Founder of CineReelz',
+        image: ashokImg,
+        alt: 'Ammireddy Ashok Reddy - Founder of CineReelz',
+        bio: "Hi, I'm Ashok Reddy, founder of CineReelz. I create cinematic reels that capture emotions, style, and storytelling in every frame. My goal is simple - to make your moments look and feel like a movie.",
+        tags: ['Visionary', 'Cinematic Reel Maker', 'Storyteller']
+    },
+    {
+        name: 'Nandu Chowdary',
+        role: 'Co-founder and Editor',
+        image: nanduImg,
+        alt: 'Nandu Chowdary - Co-founder and Editor at CineReelz',
+        bio: 'Co-founder and Editor at CineReelz. A cinematic instant reel maker creating fast, cinematic, and visually engaging stories that leave a lasting impression.',
+        tags: ['Editor', 'Instant Reel Specialist', 'Visual Storyteller']
+    }
+];
+
 const About = () => {
     const sectionRef = useRef(null);
 
@@ -27,68 +46,45 @@ const About = () => {
 
     return (
         <section className="about section" id="about" ref={sectionRef}>
-            <h2 className="section-title about-animate">
-                Meet the <span>Visionaries</span>
-            </h2>
-            <p className="section-subtitle about-animate">
-                The creative minds behind CineReelz — driven by passion, powered by storytelling.
-            </p>
+            <div className="section-heading about-animate">
+                <span className="section-eyebrow">The Team</span>
+                <h2 className="section-title">
+                    Meet the <span>Visionaries</span>
+                </h2>
+                <p className="section-subtitle">
+                    The creative duo behind CineReelz, blending fast delivery with a more cinematic, detail-driven eye.
+                </p>
+            </div>
 
             <div className="about-team">
-                {/* Ashok Card */}
-                <div className="about-member about-animate">
-                    <div className="about-member-image-wrap">
-                        <div className="about-member-glow"></div>
-                        <img
-                            src={ashokImg}
-                            alt="Ammireddy Ashok Reddy — Founder of CineReelz"
-                            className="about-member-image"
-                            loading="lazy"
-                        />
-                    </div>
-                    <div className="about-member-info">
-                        <h3 className="about-member-name">Ammireddy Ashok Reddy</h3>
-                        <span className="about-member-role">Founder of Cinereelz</span>
-                        <p className="about-member-bio">
-                            Hi, I'm Ashok Reddy, founder of Cinereelz. I create
-                            cinematic reels that capture emotions, style, and storytelling in
-                            every frame. My goal is simple — to make your moments look and
-                            feel like a movie.
-                        </p>
-                        <div className="about-member-tags">
-                            <span>Visionary</span>
-                            <span>Cinematic reel maker</span>
-                            <span>Storyteller</span>
+                {teamMembers.map((member, index) => (
+                    <article
+                        key={member.name}
+                        className={`about-member about-animate ${index % 2 === 1 ? 'about-member-reverse' : ''}`}
+                    >
+                        <div className="about-member-image-wrap">
+                            <div className="about-member-glow"></div>
+                            <img
+                                src={member.image}
+                                alt={member.alt}
+                                className="about-member-image"
+                                loading="lazy"
+                            />
                         </div>
-                    </div>
-                </div>
 
-                {/* Nandu Card */}
-                <div className="about-member about-member-reverse about-animate">
-                    <div className="about-member-image-wrap">
-                        <div className="about-member-glow"></div>
-                        <img
-                            src={nanduImg}
-                            alt="Nandu Chowdary — Co-founder & Editor at CineReelz"
-                            className="about-member-image"
-                            loading="lazy"
-                        />
-                    </div>
-                    <div className="about-member-info">
-                        <h3 className="about-member-name">Nandu Chowdary</h3>
-                        <span className="about-member-role">Co-founder & Editor</span>
-                        <p className="about-member-bio">
-                            Co-founder and Editor at Cinereelz. A cinematic and instant
-                            reel maker — creating fast, cinematic, and visually engaging
-                            stories that leave a lasting impression.
-                        </p>
-                        <div className="about-member-tags">
-                            <span>Editor</span>
-                            <span>Cinematic Instant Reel Maker</span>
-                            <span>Reel Maker</span>
+                        <div className="about-member-info">
+                            <span className="about-member-kicker">Core Creative</span>
+                            <h3 className="about-member-name">{member.name}</h3>
+                            <span className="about-member-role">{member.role}</span>
+                            <p className="about-member-bio">{member.bio}</p>
+                            <div className="about-member-tags">
+                                {member.tags.map((tag) => (
+                                    <span key={tag}>{tag}</span>
+                                ))}
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </article>
+                ))}
             </div>
         </section>
     );

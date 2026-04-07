@@ -2,35 +2,35 @@ import React, { useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import '../styles/HowItWorks.css';
 
+const steps = [
+    {
+        number: 1,
+        icon: 'fa-brands fa-whatsapp',
+        title: 'Book on WhatsApp',
+        description: 'Simply message us on WhatsApp to confirm your slot and share your event details.'
+    },
+    {
+        number: 2,
+        icon: 'fa-solid fa-video',
+        title: 'On-Spot Shooting',
+        description: 'We capture the event live with a polished social-first approach using iPhone and drone.'
+    },
+    {
+        number: 3,
+        icon: 'fa-solid fa-scissors',
+        title: 'Instant Editing',
+        description: 'The edit starts while the event is still happening, so your reels keep their momentum.'
+    },
+    {
+        number: 4,
+        icon: 'fa-solid fa-paper-plane',
+        title: 'Delivery in Minutes',
+        description: 'You receive clean, share-ready reels fast, without waiting days for the final content.'
+    }
+];
+
 const HowItWorks = () => {
     const containerRef = useRef(null);
-
-    const steps = [
-        {
-            number: 1,
-            icon: "fa-brands fa-whatsapp",
-            title: "Book on WhatsApp",
-            description: "Simply message us on WhatsApp to book your slot. Quick and easy."
-        },
-        {
-            number: 2,
-            icon: "fa-solid fa-video",
-            title: "On-Spot Shooting",
-            description: "Professional iPhone & drone shooting at your event location."
-        },
-        {
-            number: 3,
-            icon: "fa-solid fa-scissors",
-            title: "Instant Editing",
-            description: "Our team edits your reels on-the-go using iPhone."
-        },
-        {
-            number: 4,
-            icon: "fa-solid fa-paper-plane",
-            title: "Delivery in Minutes",
-            description: "Receive your polished reels within 20 minutes. No waiting."
-        }
-    ];
 
     useEffect(() => {
         const items = containerRef.current?.querySelectorAll('.step');
@@ -53,17 +53,16 @@ const HowItWorks = () => {
         return () => observer.disconnect();
     }, []);
 
-    // Structured Data for HowTo
     const howToSchema = {
-        "@context": "https://schema.org",
-        "@type": "HowTo",
-        "name": "How to Book a CineReelz Shoot",
-        "step": steps.map(step => ({
-            "@type": "HowToStep",
-            "position": step.number,
-            "name": step.title,
-            "text": step.description,
-            "image": "https://www.cinereelz.in/cinereelz-logo.png"
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'How to Book a CineReelz Shoot',
+        step: steps.map((step) => ({
+            '@type': 'HowToStep',
+            position: step.number,
+            name: step.title,
+            text: step.description,
+            image: 'https://www.cinereelz.in/cinereelz-logo.png'
         }))
     };
 
@@ -74,26 +73,29 @@ const HowItWorks = () => {
                     {JSON.stringify(howToSchema)}
                 </script>
             </Helmet>
-            <h2 className="section-title">How It <span>Works</span></h2>
+
+            <div className="section-heading">
+                <span className="section-eyebrow">Process</span>
+                <h2 className="section-title">How It <span>Works</span></h2>
+                <p className="section-subtitle">
+                    A fast booking-to-delivery workflow designed to feel smooth for you and still look cinematic in the final reel.
+                </p>
+            </div>
+
             <div className="steps-container" ref={containerRef}>
                 {steps.map((step, index) => (
-                    <div
-                        key={index}
+                    <article
+                        key={step.number}
                         className="step"
-                        style={{ animationDelay: `${index * 0.2}s` }}
+                        style={{ animationDelay: `${index * 0.12}s` }}
                     >
-                        <div
-                            className="step-number"
-                            style={{ animationDelay: `${index * 0.3}s` }}
-                        >
-                            {step.number}
-                        </div>
+                        <div className="step-number">{step.number}</div>
                         <div className="step-icon">
-                            <i className={step.icon}></i>
+                            <i className={step.icon} aria-hidden="true"></i>
                         </div>
                         <h3 className="step-title">{step.title}</h3>
                         <p className="step-description">{step.description}</p>
-                    </div>
+                    </article>
                 ))}
             </div>
         </section>

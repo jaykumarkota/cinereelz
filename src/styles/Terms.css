@@ -1,15 +1,19 @@
 .terms {
-    background: var(--bg-black);
+    background:
+        radial-gradient(circle at top center, rgba(204, 0, 255, 0.06), transparent 24%),
+        var(--bg-black);
 }
 
 .terms-content {
-    max-width: 900px;
+    max-width: 980px;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--border-color);
-    border-radius: 15px;
-    padding: 40px;
-    animation: fadeInUp 1s ease;
+    padding: 28px 32px;
+    border: 1px solid var(--surface-border);
+    border-radius: 28px;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.025) 100%),
+        rgba(12, 12, 18, 0.96);
+    box-shadow: var(--surface-shadow);
 }
 
 .terms-list {
@@ -18,13 +22,12 @@
 }
 
 .terms-list li {
-    padding: 16px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    color: var(--text-gray);
-    font-size: 15px;
-    line-height: 1.7;
     position: relative;
-    padding-left: 35px;
+    padding: 18px 0 18px 34px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 15px;
+    line-height: 1.8;
 }
 
 .terms-list li:last-child {
@@ -32,27 +35,41 @@
 }
 
 .terms-list li::before {
-    content: '▸';
+    content: '';
     position: absolute;
     left: 0;
-    color: var(--primary-color);
-    font-size: 18px;
-    font-weight: bold;
+    top: 28px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e995ff 0%, #b562ff 100%);
+    box-shadow: 0 0 0 5px rgba(204, 0, 255, 0.09);
 }
 
 .terms-list strong {
-    color: var(--primary-color);
-    font-weight: 600;
+    color: var(--text-white);
+    font-weight: 700;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .terms-content {
-        padding: 30px 20px;
+        padding: 22px 20px;
+        border-radius: 24px;
     }
 
     .terms-list li {
+        padding-left: 28px;
         font-size: 14px;
-        padding-left: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .terms-content {
+        padding: 20px 18px;
+    }
+
+    .terms-list li {
+        font-size: 13px;
+        line-height: 1.75;
     }
 }

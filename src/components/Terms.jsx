@@ -4,7 +4,13 @@ import '../styles/Terms.css';
 const Terms = () => {
     return (
         <section className="terms section" id="terms">
-            <h2 className="section-title">Terms & Conditions</h2>
+            <div className="section-heading">
+                <span className="section-eyebrow">Fine Print</span>
+                <h2 className="section-title">Terms and <span>Conditions</span></h2>
+                <p className="section-subtitle">
+                    Clear expectations help the shoot day move smoothly and keep delivery fast for everyone involved.
+                </p>
+            </div>
             <div className="terms-content">
                 <ul className="terms-list">
                     <li><strong>Advance Payment:</strong> 50% advance required to confirm booking.</li>

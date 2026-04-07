@@ -15,6 +15,11 @@
   --text-gray: #999999;
   --gradient-purple: linear-gradient(135deg, #cc00ff 0%, #9900cc 100%);
   --border-color: rgba(204, 0, 255, 0.2);
+  --surface-card: rgba(255, 255, 255, 0.05);
+  --surface-card-strong: rgba(255, 255, 255, 0.08);
+  --surface-border: rgba(255, 255, 255, 0.1);
+  --surface-border-strong: rgba(232, 154, 255, 0.28);
+  --surface-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
 }
 
 body {
@@ -107,15 +112,34 @@ a {
 }
 
 .section-title {
-  font-size: 40px;
+  font-size: clamp(2.3rem, 4vw, 4rem);
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 18px;
   color: var(--text-white);
   animation: fadeInUp 0.8s ease;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
 }
 
 .section-title span {
   color: var(--primary-color);
+}
+
+.section-heading {
+  max-width: 760px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+
+.section-eyebrow {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: #d7a6ff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
 }
 
 /* Screen reader only — visible to crawlers, hidden visually */
@@ -134,10 +158,10 @@ a {
 .section-subtitle {
   text-align: center;
   color: var(--text-gray);
-  font-size: 16px;
+  font-size: 17px;
   max-width: 700px;
-  margin: -40px auto 50px;
-  line-height: 1.6;
+  margin: 0 auto;
+  line-height: 1.8;
 }
 
 /* Animations */
@@ -219,7 +243,17 @@ a {
 
   .section-title {
     font-size: 32px;
-    margin-bottom: 35px;
+    margin-bottom: 14px;
+  }
+
+  .section-heading {
+    margin-bottom: 38px;
+  }
+
+  .section-eyebrow {
+    margin-bottom: 12px;
+    font-size: 11px;
+    letter-spacing: 0.22em;
   }
 
   .cta-button {
@@ -243,7 +277,16 @@ a {
 
   .section-title {
     font-size: 28px;
-    margin-bottom: 30px;
+    margin-bottom: 12px;
+  }
+
+  .section-heading {
+    margin-bottom: 32px;
+  }
+
+  .section-subtitle {
+    font-size: 15px;
+    line-height: 1.75;
   }
 
   .cta-button {
