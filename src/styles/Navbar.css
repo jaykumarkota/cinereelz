@@ -44,18 +44,6 @@
     object-fit: contain;
 }
 
-.tony-logo {
-    height: 50px;
-}
-
-.collab-x {
-    color: rgba(255, 255, 255, 0.76);
-    font-size: 18px;
-    font-weight: 500;
-    margin: 0 2px;
-    font-family: 'Arial', sans-serif;
-}
-
 .navbar-links {
     display: flex;
     align-items: center;
@@ -138,10 +126,6 @@
     .navbar-links a {
         padding: 0 12px;
     }
-
-    .collab-x {
-        display: none;
-    }
 }
 
 @media (max-width: 860px) {
@@ -156,7 +140,7 @@
     }
 
     .navbar-logo,
-    .tony-logo {
+    .navbar-logo {
         height: 40px;
     }
 
@@ -209,8 +193,7 @@
 }
 
 @media (max-width: 480px) {
-    .navbar-logo,
-    .tony-logo {
+    .navbar-logo {
         height: 34px;
     }
 

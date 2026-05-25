@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import '../styles/About.css';
 import ashokImg from '../assets/ashok-img.jpeg';
-import nanduImg from '../assets/nandu-img.webp';
 
 const teamMembers = [
     {
@@ -11,14 +10,6 @@ const teamMembers = [
         alt: 'Ammireddy Ashok Reddy - Founder of CineReelz',
         bio: "Hi, I'm Ashok Reddy, founder of CineReelz. I create cinematic reels that capture emotions, style, and storytelling in every frame. My goal is simple - to make your moments look and feel like a movie.",
         tags: ['Visionary', 'Cinematic Reel Maker', 'Storyteller']
-    },
-    {
-        name: 'Nandu Chowdary',
-        role: 'Co-founder and Editor',
-        image: nanduImg,
-        alt: 'Nandu Chowdary - Co-founder and Editor at CineReelz',
-        bio: 'Co-founder and Editor at CineReelz. A cinematic instant reel maker creating fast, cinematic, and visually engaging stories that leave a lasting impression.',
-        tags: ['Editor', 'Instant Reel Specialist', 'Visual Storyteller']
     }
 ];
 
@@ -49,10 +40,10 @@ const About = () => {
             <div className="section-heading about-animate">
                 <span className="section-eyebrow">The Team</span>
                 <h2 className="section-title">
-                    Meet the <span>Visionaries</span>
+                    Meet the <span>Visionary</span>
                 </h2>
                 <p className="section-subtitle">
-                    The creative duo behind CineReelz, blending fast delivery with a more cinematic, detail-driven eye.
+                    The creative force behind CineReelz, blending fast delivery with a more cinematic, detail-driven eye.
                 </p>
             </div>
 

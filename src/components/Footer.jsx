@@ -75,6 +75,11 @@ const Footer = () => {
                 <div className="footer-bottom">
                     <p className="footer-seo-tagline">CineReelz - India&apos;s fastest reels shooting service for weddings, events, and brand moments.</p>
                     <p>&copy; 2026 {config.website.name}. All rights reserved.</p>
+                    <p className="footer-credit">
+                        <span>Crafted with</span>
+                        <i className="fa-solid fa-heart" aria-hidden="true"></i>
+                        <span>by Jay</span>
+                    </p>
                 </div>
             </div>
         </footer>

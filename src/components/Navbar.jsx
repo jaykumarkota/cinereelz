@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import logo from '../assets/cinereelz-logo.png';
-import tonyLogo from '../assets/tony-photo-logo.png';
 import '../styles/Navbar.css';
 
 const Navbar = () => {
@@ -31,12 +30,6 @@ const Navbar = () => {
                         src={logo}
                         alt="CineReelz"
                         className="navbar-logo"
-                    />
-                    <span className="collab-x">x</span>
-                    <img
-                        src={tonyLogo}
-                        alt="Tony Photography"
-                        className="navbar-logo tony-logo"
                     />
                 </div>
 

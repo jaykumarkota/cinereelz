@@ -1,7 +1,7 @@
-import weddingImage from '../assets/wedding-sample.jpeg';
-import corporateImage from '../assets/corporate-sample.png';
-import birthdayImage from '../assets/birthday-sample.png';
-import politicalImage from '../assets/political-sample.png';
+import sample1Image from '../assets/sample1.png';
+import sample2Image from '../assets/sample2.png';
+import sample3Image from '../assets/sample3.png';
+import sample4Image from '../assets/sample4.png';
 
 const config = {
     contact: {
@@ -22,10 +22,10 @@ const config = {
 
     images: {
         samples: {
-            corporate: { title: "Corporate Events", alt: "Corporate event videography in Hyderabad", image: corporateImage, link: "https://www.instagram.com/reels/DFf22DfyY2P/" },
-            wedding: { title: "Weddings", alt: "Cinematic wedding reels and photography", image: weddingImage, link: "https://www.instagram.com/reels/DFf22DfyY2P/" },
-            political: { title: "Political Campaigns", alt: "Political campaign reels and photography", image: politicalImage, link: "https://www.instagram.com/reels/DFf22DfyY2P/" },
-            birthday: { title: "Birthdays", alt: "Fun and vibrant birthday party reels", image: birthdayImage, link: "https://www.instagram.com/reels/DFf22DfyY2P/" },
+            corporate: { title: "Corporate Events", alt: "Corporate event videography in Hyderabad", image: sample1Image, link: "https://www.instagram.com/reel/DVBVJMbDSnQ/?igsh=emR5c3Y5dW9zMjUz" },
+            wedding: { title: "Weddings", alt: "Cinematic wedding reels and photography", image: sample2Image, link: "https://www.instagram.com/reel/DYCYaEqykA3/?igsh=ZDhka3M4N3h6YjAz" },
+            political: { title: "Political Campaigns", alt: "Political campaign reels and photography", image: sample3Image, link: "https://www.instagram.com/reel/DXHF9KoEr9X/?igsh=MXBmNWsxa2MxcDZ6ZA==" },
+            birthday: { title: "Birthdays", alt: "Fun and vibrant birthday party reels", image: sample4Image, link: "https://www.instagram.com/reel/DWjGCifkpZ9/?igsh=cGpobXBtdDJyM2pn" },
         }
     },
 

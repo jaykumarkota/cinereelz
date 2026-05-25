@@ -1,10 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import '../styles/Samples.css';
 import config from '../config/siteConfig';
 
 const Samples = () => {
-    const [modalOpen, setModalOpen] = useState(false);
-    const [selectedSample, setSelectedSample] = useState(null);
     const gridRef = useRef(null);
 
     const samples = [
@@ -35,14 +33,15 @@ const Samples = () => {
         return () => observer.disconnect();
     }, []);
 
-    const openModal = (sample) => {
-        setSelectedSample(sample);
-        setModalOpen(true);
+    const openSample = (link) => {
+        window.open(link, '_blank', 'noopener,noreferrer');
     };
 
-    const closeModal = () => {
-        setModalOpen(false);
-        setSelectedSample(null);
+    const handleKeyDown = (event, link) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            openSample(link);
+        }
     };
 
     return (
@@ -70,10 +69,11 @@ const Samples = () => {
                         key={sample.id}
                         className="sample-item"
                         style={{ animationDelay: `${index * 0.12}s` }}
-                        onClick={() => openModal(sample)}
-                        role="button"
+                        onClick={() => openSample(sample.link)}
+                        onKeyDown={(event) => handleKeyDown(event, sample.link)}
+                        role="link"
                         tabIndex={0}
-                        aria-label={`View ${sample.title} sample`}
+                        aria-label={`Open ${sample.title} reel on Instagram`}
                     >
                         <img
                             src={sample.image}
@@ -84,6 +84,7 @@ const Samples = () => {
                             width="1080"
                             height="1920"
                         />
+
                         <div className="sample-overlay">
                             <div className="sample-overlay-top">
                                 <span className="sample-tag">Featured Reel</span>
@@ -93,21 +94,9 @@ const Samples = () => {
                                 </div>
                             </div>
 
-                            <div className="sample-overlay-bottom">
-                                <div>
-                                    <h3 className="sample-title">{sample.title}</h3>
-                                </div>
-                                <a
-                                    href={sample.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="sample-play-btn"
-                                    onClick={(e) => e.stopPropagation()}
-                                    aria-label={`Play ${sample.title} reel on Instagram`}
-                                >
-                                    <i className="fa-solid fa-play" aria-hidden="true"></i>
-                                </a>
-                            </div>
+                            <span className="sample-play-btn" aria-hidden="true">
+                                <i className="fa-solid fa-play" aria-hidden="true"></i>
+                            </span>
                         </div>
                     </article>
                 ))}
@@ -120,21 +109,6 @@ const Samples = () => {
                     </button>
                 </a>
             </div>
-
-            {modalOpen && (
-                <div className="modal-overlay" onClick={closeModal} role="dialog" aria-modal="true">
-                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-                        <button className="modal-close" onClick={closeModal} aria-label="Close modal">
-                            <i className="fa-solid fa-xmark" aria-hidden="true"></i>
-                        </button>
-                        <div className="modal-sample">
-                            <i className="fa-solid fa-clapperboard" aria-hidden="true"></i>
-                            <h3>{selectedSample?.title}</h3>
-                            <p>Sample reel preview coming soon. Use the play button on the card to open Instagram directly.</p>
-                        </div>
-                    </div>
-                </div>
-            )}
         </section>
     );
 };

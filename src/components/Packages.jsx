@@ -5,22 +5,6 @@ import weddingSample from '../assets/wedding-sample.jpeg';
 
 const packageCatalog = [
     {
-        name: 'Pre-Wedding',
-        price: 'Rs. 9,999',
-        unit: '/story',
-        kicker: 'Soft-launch your story',
-        description: 'A romantic pre-wedding film shaped for invites, save-the-dates, and social reveals.',
-        idealFor: 'Couple sessions',
-        delivery: '48-hour preview',
-        features: [
-            'Cinematic drone footage',
-            'Signature cinematic edit',
-            'Single-session coverage',
-            'One polished highlight film',
-            'Planning support included'
-        ]
-    },
-    {
         name: 'Standard',
         price: 'Rs. 5,499',
         unit: '/event',
@@ -89,9 +73,9 @@ const packageCatalog = [
 const tierCollections = [
     {
         id: 'love-story',
-        label: 'Love Story',
-        description: 'For proposals, pre-wedding shoots, and couples who want intimate storytelling with polished delivery.',
-        packageNames: ['Pre-Wedding', 'Standard', 'Spotlight'],
+        label: 'Signature Story',
+        description: 'For intimate celebrations and polished story-led coverage that still feels premium and social-ready.',
+        packageNames: ['Standard', 'Spotlight', 'Premier'],
         featured: 'Spotlight'
     },
     {
@@ -129,7 +113,7 @@ const Packages = () => {
                     Choose Your <span>Story</span>
                 </h2>
                 <p className="packages-intro">
-                    From pre-wedding romance to multi-day celebrations, every package is shaped to feel polished,
+                    From intimate celebrations to multi-day weddings, every package is shaped to feel polished,
                     premium, and social-first without losing the emotion of the event.
                 </p>
 
