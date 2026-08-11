@@ -43,7 +43,7 @@ const Hero = () => {
                     <h1 className="hero-tagline">
                         <span className="hero-line">Your Vision,</span>
                         <span className="hero-line">our Lens,</span>
-                        <span className="hero-line">Stories Unload.</span>
+                        <span className="hero-line">Stories Unfold.</span>
                         <span className="hero-line hero-highlight">IN {config.business.deliveryTime.toUpperCase()}</span>
                     </h1>
 
