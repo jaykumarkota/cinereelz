@@ -5,6 +5,22 @@ import weddingSample from '../assets/wedding-sample.jpeg';
 
 const packageCatalog = [
     {
+        name: 'Single Reel',
+        price: 'Rs. 1,499',
+        unit: '/reel',
+        kicker: 'A quick cinematic moment',
+        description: 'One polished reel for the moments you want captured, edited, and ready to share fast.',
+        idealFor: 'Small celebrations',
+        delivery: 'Fast delivery',
+        features: [
+            'One professionally captured reel',
+            'Signature cinematic edit',
+            'Social-ready vertical export',
+            'Key moments captured on-site',
+            'Quick delivery after the event'
+        ]
+    },
+    {
         name: 'Standard',
         price: 'Rs. 5,499',
         unit: '/event',
@@ -75,14 +91,14 @@ const tierCollections = [
         id: 'love-story',
         label: 'Signature Story',
         description: 'For intimate celebrations and polished story-led coverage that still feels premium and social-ready.',
-        packageNames: ['Standard', 'Spotlight', 'Premier'],
+        packageNames: ['Single Reel', 'Standard', 'Spotlight'],
         featured: 'Spotlight'
     },
     {
         id: 'event-day',
         label: 'Event Day',
         description: 'For single-day coverage that still feels premium, shareable, and well-paced across social formats.',
-        packageNames: ['Standard', 'Spotlight', 'Premier'],
+        packageNames: ['Single Reel', 'Standard', 'Spotlight'],
         featured: 'Spotlight'
     },
     {
