@@ -16,6 +16,7 @@ import Terms from './components/Terms';
 import ThankYou from './components/ThankYou';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import BookingPopup from './components/BookingPopup';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <div className="App">
         <SEO />
         <Navbar />
+        <BookingPopup />
         <div id="hero">
           <Hero />
         </div>
