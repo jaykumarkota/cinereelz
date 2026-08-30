@@ -240,6 +240,15 @@
     font-size: 13px;
 }
 
+.package-features li.is-candid-bonus {
+    color: rgba(255, 154, 154, 0.9);
+    font-weight: 500;
+}
+
+.package-features li.is-candid-bonus i {
+    color: #ee7777;
+}
+
 .package-meta {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));

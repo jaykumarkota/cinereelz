@@ -16,6 +16,7 @@ const packageCatalog = [
             'One professionally captured reel',
             'Signature cinematic edit',
             'Social-ready vertical export',
+            'Free candid clicks included',
             'Key moments captured on-site',
             'Quick delivery after the event'
         ]
@@ -32,6 +33,7 @@ const packageCatalog = [
             'One event coverage',
             'Three professionally captured reels',
             'Signature cinematic edit',
+            'Free candid clicks included',
             'Raw footage included',
             'Priority social-ready export'
         ]
@@ -48,6 +50,7 @@ const packageCatalog = [
             'Coverage across three events',
             'Twelve edited reels',
             'Signature cinematic edit',
+            'Free candid clicks included',
             'Raw footage included',
             'Instant delivery for key highlights'
         ]
@@ -64,6 +67,7 @@ const packageCatalog = [
             'Coverage across four events',
             'Fifteen edited reels',
             'Signature cinematic edit',
+            'Free candid clicks included',
             'Raw footage included',
             'Fast highlight turnaround'
         ]
@@ -80,6 +84,7 @@ const packageCatalog = [
             'Coverage across six events',
             'Twenty-four edited reels',
             'Signature cinematic edit',
+            'Free candid clicks included',
             'Raw footage included',
             'Fast delivery and premium support'
         ]
@@ -173,7 +178,10 @@ const Packages = () => {
 
                                 <ul className="package-features">
                                     {pkg.features.map((feature) => (
-                                        <li key={feature}>
+                                        <li
+                                            key={feature}
+                                            className={feature === 'Free candid clicks included' ? 'is-candid-bonus' : ''}
+                                        >
                                             <i className="fa-solid fa-circle-check" aria-hidden="true"></i>
                                             <span>{feature}</span>
                                         </li>

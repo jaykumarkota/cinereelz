@@ -21,10 +21,9 @@ const ScrollToTop = () => {
     }, []);
 
     const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+        window.dispatchEvent(new CustomEvent('cinereelz:scroll-to', {
+            detail: { top: 0 }
+        }));
     };
 
     return (

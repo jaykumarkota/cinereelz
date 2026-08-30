@@ -8,14 +8,10 @@ const Navbar = () => {
     const scrollToSection = (sectionId) => {
         const element = document.getElementById(sectionId);
         if (element) {
-            const offset = 65;
-            const elementPosition = element.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
+            const top = element.getBoundingClientRect().top + window.scrollY;
+            window.dispatchEvent(new CustomEvent('cinereelz:scroll-to', {
+                detail: { top, offset: -65 }
+            }));
         }
         setMobileMenuOpen(false);
     };

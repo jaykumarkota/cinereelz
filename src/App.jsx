@@ -17,12 +17,14 @@ import ThankYou from './components/ThankYou';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import BookingPopup from './components/BookingPopup';
+import SmoothScroll from './components/SmoothScroll';
 
 function App() {
   return (
     <HelmetProvider>
       <div className="App">
         <SEO />
+        <SmoothScroll />
         <Navbar />
         <BookingPopup />
         <div id="hero">

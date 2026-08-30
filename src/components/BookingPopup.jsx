@@ -40,7 +40,7 @@ const BookingPopup = () => {
     }
 
     return (
-        <div className="booking-popup-backdrop" role="presentation" onClick={dismissPopup}>
+        <div className="booking-popup-backdrop" role="presentation" data-lenis-prevent onClick={dismissPopup}>
             <section
                 className="booking-popup"
                 role="dialog"
